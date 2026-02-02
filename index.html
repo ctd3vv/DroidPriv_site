@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroidPriv | Official Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --md-sys-color-primary: #d0e4ff;
+            --md-sys-color-on-primary: #003355;
+            --md-sys-color-primary-container: #004a77;
+            --md-sys-color-on-primary-container: #d1e4ff;
+            --md-sys-color-secondary-container: #33485d;
+            --md-sys-color-on-secondary-container: #d7e3f7;
+            --md-sys-color-surface: #1a1c1e;
+            --md-sys-color-surface-variant: #42474e;
+            --md-sys-color-on-surface: #e2e2e6;
+            --md-sys-color-on-surface-variant: #c2c7cf;
+            --md-sys-color-outline: #8c9199;
+            --md-sys-color-background: #111318;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--md-sys-color-background);
+            color: var(--md-sys-color-on-surface);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 8%;
+            background: rgba(17, 19, 24, 0.8);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-area { 
+            display: flex; 
+            align-items: center; 
+            gap: 16px; 
+        }
+
+        .logo-area img { 
+            width: 48px; 
+            height: 48px;
+            border-radius: 12px; 
+        }
+
+        .logo-area span { 
+            font-family: 'Google Sans', sans-serif;
+            font-weight: 700; 
+            font-size: 1.5rem; 
+            letter-spacing: -0.2px; 
+        }
+
+        .nav-links a { 
+            color: var(--md-sys-color-on-surface-variant); 
+            text-decoration: none; 
+            margin-left: 24px; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            transition: color 0.2s; 
+        }
+
+        .nav-links a:hover { 
+            color: var(--md-sys-color-primary); 
+        }
+
+        .hero {
+            padding: 120px 8% 80px;
+            text-align: center;
+        }
+
+        .version-badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--md-sys-color-secondary-container);
+            color: var(--md-sys-color-on-secondary-container);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 { 
+            font-family: 'Google Sans', sans-serif;
+            font-size: clamp(3rem, 8vw, 4.5rem); 
+            margin: 0; 
+            font-weight: 700; 
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero p { 
+            color: var(--md-sys-color-on-surface-variant); 
+            font-size: 1.25rem; 
+            max-width: 700px; 
+            margin: 24px auto; 
+        }
+
+        .btn-group { 
+            display: flex; 
+            justify-content: center; 
+            gap: 12px; 
+            margin-top: 40px; 
+        }
+        
+        .btn {
+            padding: 18px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-primary { 
+            background: var(--md-sys-color-primary); 
+            color: var(--md-sys-color-on-primary); 
+        }
+
+        .btn-primary:hover { 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            transform: scale(1.02);
+        }
+
+        .btn-secondary { 
+            background: var(--md-sys-color-surface-variant); 
+            color: var(--md-sys-color-on-surface-variant); 
+            border: 1px solid var(--md-sys-color-outline);
+        }
+
+        .btn-secondary:hover {
+            background: #4f535a;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 40px 8% 100px;
+        }
+
+        .feature-card {
+            background: var(--md-sys-color-surface);
+            padding: 40px;
+            border-radius: 28px;
+            transition: background 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feature-card:hover { 
+            background: #23262e;
+        }
+
+        .feature-card h3 { 
+            font-family: 'Google Sans', sans-serif;
+            color: var(--md-sys-color-primary); 
+            margin: 0; 
+            font-size: 1.5rem;
+        }
+
+        .feature-card p { 
+            color: var(--md-sys-color-on-surface-variant); 
+            font-size: 1rem; 
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 60px 8%; 
+            color: var(--md-sys-color-on-surface-variant); 
+            font-size: 0.9rem; 
+            border-top: 1px solid var(--md-sys-color-surface-variant); 
+        }
+
+        @media (max-width: 768px) {
+            .btn-group { flex-direction: column; align-items: stretch; padding: 0 10%; }
+            .hero h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo-area">
+        <img src="https://github.com/ctd3vv/DroidPriv/raw/main/assets/logo.png" alt="DroidPriv">
+        <span>DroidPriv</span>
+    </div>
+    <div class="nav-links">
+        <a href="https://github.com/ctd3vv/DroidPriv">GitHub</a>
+        <a href="#features">Features</a>
+        <a href="https://github.com/ctd3vv/DroidPriv/releases">Releases</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="version-badge">v1.0.1-ALPHA</div>
+    <h1>Android Integrity,<br><span style="color: var(--md-sys-color-primary);">Simplified.</span></h1>
+    <p>The ultimate tool to diagnose root privileges, kernel metadata, and hardware info on your Android device.</p>
+    
+    <div class="btn-group">
+        <a href="https://github.com/ctd3vv/DroidPriv/releases/download/Alpha/app-release.apk" class="btn btn-primary">Download Latest APK</a>
+        <a href="https://github.com/ctd3vv/DroidPriv" class="btn btn-secondary">View on GitHub</a>
+    </div>
+</section>
+
+<section class="features" id="features">
+    <div class="feature-card">
+        <h3>Multi-Root Detection</h3>
+        <p>Accurate identification of binaries and managers like Magisk, KernelSU, and SukiSU through multiple verification layers.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Kernel Insights</h3>
+        <p>Detailed display of Linux Kernel version and processor architecture right in the palm of your hand.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Modern UI</h3>
+        <p>Interface based on ViewPager2 and Material Design 3 Components for fluid and intuitive navigation.</p>
+    </div>
+</section>
+
+<footer>
+    © 2026 DroidPriv Project • Licensed under GPLv3 • Made by community, for community.
+</footer>
+
+</body>
+</html>
